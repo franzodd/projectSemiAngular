@@ -1,0 +1,50 @@
+<h1>Lista de figuras</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Figura</td>
+            <td>Tamanio</td>
+            <td>Precio</td>
+            <td>Imagen</td>
+            <td>Stock</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{figura.nombre}}</td>
+            <td>{{figura.tamanio}}</td>
+            <td>{{figura.precio}}</td>
+            <td><img class="img" [src]="figura.img" [alt]="figura.nombre"></td>
+            @if (figura.stock > 0) {
+            <td>{{figura.stock}}</td>
+            }
+            @else {
+            <td>No hay stock</td>
+            }
+        </tr>
+        <tr>
+            <td>Baki</td>
+            <td>15cm</td>
+            <td>$18000</td>
+            <td></td>
+            @if (figura.stock > 0) {
+            <td>{{figura.stock}}</td>
+            }
+            @else {
+            <td>No hay stock</td>
+            }
+        </tr>
+        <tr>
+            <td>Coraline</td>
+            <td>20cm</td>
+            <td>$28000</td>
+            <td></td>
+            @if (figura.stock > 0) {
+            <td>{{figura.stock}}</td>
+            }
+            @else {
+            <td>No hay stock</td>
+            }
+        </tr>
+    </tbody>
+</table>
