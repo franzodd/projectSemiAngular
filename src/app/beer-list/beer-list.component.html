@@ -10,41 +10,38 @@
         </tr>
     </thead>
     <tbody>
+        @for (fig of figuras; track fig.nombre) {
         <tr>
-            <td>{{figura.nombre}}</td>
-            <td>{{figura.tamanio}}</td>
-            <td>{{figura.precio}}</td>
-            <td><img class="img" [src]="figura.img" [alt]="figura.nombre"></td>
-            @if (figura.stock > 0) {
-            <td>{{figura.stock}}</td>
+            <td>{{fig.nombre}}</td>
+            <td>{{fig.tamanio}}</td>
+            @if (fig.promo) {
+            <td class="btn btn-success espacioDelante">{{fig.precio | currency}}</td>
+            }
+            @else {
+            <td class="btn btn-danger btnEliminarNegar">{{fig.precio | currency}}</td>
+            }
+            <td><img class="img" [src]="fig.img" [alt]="fig.nombre"></td>
+            @if (fig.stock > 0) {
+            <td>{{fig.stock}}</td>
             }
             @else {
             <td>No hay stock</td>
             }
         </tr>
+        }
         <tr>
             <td>Baki</td>
             <td>15cm</td>
             <td>$18000</td>
             <td></td>
-            @if (figura.stock > 0) {
-            <td>{{figura.stock}}</td>
-            }
-            @else {
-            <td>No hay stock</td>
-            }
+            <td>2</td>
         </tr>
         <tr>
             <td>Coraline</td>
             <td>20cm</td>
             <td>$28000</td>
             <td></td>
-            @if (figura.stock > 0) {
-            <td>{{figura.stock}}</td>
-            }
-            @else {
-            <td>No hay stock</td>
-            }
+            <td>4</td>
         </tr>
     </tbody>
 </table>
