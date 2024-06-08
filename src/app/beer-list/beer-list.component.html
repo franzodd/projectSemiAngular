@@ -7,6 +7,7 @@
             <td>Precio</td>
             <td>Imagen</td>
             <td>Stock</td>
+            <td>Compra</td>
         </tr>
     </thead>
     <tbody>
@@ -20,13 +21,20 @@
             @else {
             <td class="btn btn-danger btnEliminarNegar">{{fig.precio | currency}}</td>
             }
-            <td><img class="img" [src]="fig.img" [alt]="fig.nombre"></td>
+            <td><img class="img img-thubnail" [src]="fig.img" [alt]="fig.nombre"></td>
             @if (fig.stock > 0) {
             <td>{{fig.stock}}</td>
             }
             @else {
             <td>No hay stock</td>
             }
+            <td>
+                <div class="divCant">
+                    <button class="btn btn-dark btn-sm" (click)="decrementarCant(fig)">-</button>
+                    <input type="number" [(ngModel)]="fig.cantidadPedido" min="0" max="{{fig.stock}}">
+                    <button class="btn btn-dark btn-sm" (click)="incrementarCant(fig)">+</button>
+                </div>
+            </td>
         </tr>
         }
         <tr>
@@ -35,6 +43,12 @@
             <td>$18000</td>
             <td></td>
             <td>2</td>
+            <td>
+                <div class="divCant">
+                    <button>-</button>
+                    <button class="btn">0</button><button>+</button>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Coraline</td>
@@ -42,6 +56,11 @@
             <td>$28000</td>
             <td></td>
             <td>4</td>
+            <td>
+                <div class="divCant"><button>-</button>
+                    <button class="btn">0</button><button>+</button>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
