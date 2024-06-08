@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { BeerListComponent } from './beer-list/beer-list.component';
 
 import { FormsModule } from '@angular/forms';
+import { FigurasAbautComponent } from './figuras-abaut/figuras-abaut.component';
+import { ProyectoFigurasFigurasComponent } from './proyecto-figuras-figuras/proyecto-figuras-figuras.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BeerListComponent
+    BeerListComponent,
+    FigurasAbautComponent,
+    ProyectoFigurasFigurasComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
