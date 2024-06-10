@@ -11,29 +11,28 @@
         </tr>
     </thead>
     <tbody>
-        @for (fig of figuras; track fig.nombre) {
+        @for (figura of figuras; track figura.nombre) {
         <tr>
-            <td>{{fig.nombre}}</td>
-            <td>{{fig.tamanio}}</td>
-            @if (fig.promo) {
-            <td class="btn btn-success espacioDelante">{{fig.precio | currency}}</td>
+            <td>{{figura.nombre}}</td>
+            <td>{{figura.tamanio}}</td>
+            @if (figura.promo) {
+            <td class="btn btn-success espacioDelante">{{figura.precio | currency}}</td>
             }
             @else {
-            <td class="btn btn-danger btnEliminarNegar">{{fig.precio | currency}}</td>
+            <td class="btn btn-danger btnEliminarNegar">{{figura.precio | currency}}</td>
             }
-            <td><img class="img img-thubnail" [src]="fig.img" [alt]="fig.nombre"></td>
-            @if (fig.stock > 0) {
-            <td>{{fig.stock}}</td>
+            <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
+            @if (figura.stock > 0) {
+            <td>{{figura.stock}}</td>
+            <td>
+                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock"></app-input-integer>
+            </td>
             }
             @else {
             <td>No hay stock</td>
             }
             <td>
-                <div class="divCant">
-                    <button class="btn btn-dark btn-sm" (click)="decrementarCant(fig)">-</button>
-                    <input type="number" [(ngModel)]="fig.cantidadPedido" min="0" max="{{fig.stock}}">
-                    <button class="btn btn-dark btn-sm" (click)="incrementarCant(fig)">+</button>
-                </div>
+            {{figura.cantidadPedido}}
             </td>
         </tr>
         }

@@ -34,12 +34,5 @@ export class BeerListComponent {
 
   ngOnInit(): void {
   }
-  incrementarCant(figura: Figura): void {
-    if (figura.cantidadPedido < figura.stock)
-    figura.cantidadPedido++;
-  }
-  decrementarCant(figura: Figura): void {
-    if (figura.cantidadPedido > 0)
-      figura.cantidadPedido--;
-  }
+
 }
