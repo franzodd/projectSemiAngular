@@ -14,7 +14,7 @@
         @for (figura of figuras; track figura.nombre) {
         <tr>
             <td>{{figura.nombre}}</td>
-            <td>{{figura.tamanio}}</td>
+            <td>{{figura.tamanio}}cm</td>
             @if (figura.promo) {
             <td class="btn btn-success espacioDelante">{{figura.precio | currency}}</td>
             }

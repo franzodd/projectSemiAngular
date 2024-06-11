@@ -1,2 +1,28 @@
-
-<h3 class="col-4">Carrito de compras</h3>
+<h3 class="col-4">Carrito de compras ({{cantCompras}})</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Figura</td>
+            <td>Tamanio</td>
+            <td>Precio</td>
+            <td>Imagen</td>
+            <td>Cantidad</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (figura of listaCompras$|async; track figura.nombre) {
+        <tr>
+            <td>{{figura.nombre}}</td>
+            <td>{{figura.tamanio}}cm</td>
+            @if (figura.promo) {
+            <td class="btn btn-success espacioDelante">{{figura.precio | currency}}</td>
+            }
+            @else {
+            <td class="btn btn-danger btnEliminarNegar">{{figura.precio | currency}}</td>
+            }
+            <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
+            <td>{{figura.cantidadPedido}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
