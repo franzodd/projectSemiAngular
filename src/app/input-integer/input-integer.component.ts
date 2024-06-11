@@ -1,5 +1,5 @@
 import { Component,EventEmitter,Input, OnInit, Output, output } from '@angular/core';
-import { Figura } from '../beer-list/figura';
+import { Figura } from '../figura-list/figura';
 
 @Component({
   selector: 'app-input-integer',
@@ -14,6 +14,8 @@ export class InputIntegerComponent implements OnInit{
   cantidadPedido: number;  
   @Output()
   cantidadPedidoChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output()
+  maxReached: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {
   }
@@ -21,6 +23,9 @@ export class InputIntegerComponent implements OnInit{
     if (this.cantidadPedido < this.max){
       this.cantidadPedido++;
       this.cantidadPedidoChange.emit(this.cantidadPedido);
+    }
+    else{
+      this.maxReached.emit("Se llego al maximo de stock");
     }
   }
   decrementarCant(): void {

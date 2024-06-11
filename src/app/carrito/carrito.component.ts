@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FiguraCardService } from '../figura-card.service';
 
 @Component({
   selector: 'app-carrito',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './carrito.component.scss'
 })
 export class CarritoComponent {
+  constructor(private carrito: FiguraCardService) { }
+
+  ngOnInit(): void {
+  }
 
 }

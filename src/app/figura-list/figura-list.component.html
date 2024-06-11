@@ -25,14 +25,14 @@
             @if (figura.stock > 0) {
             <td>{{figura.stock}}</td>
             <td>
-                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock"></app-input-integer>
+                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock" (maxReached)="maxReached($event)"></app-input-integer>
             </td>
             }
             @else {
             <td>No hay stock</td>
             }
             <td>
-            {{figura.cantidadPedido}}
+            <button class="btn btn-dark" (click)="agregarFiguraAlCarrito(figura)">Agregar al carrito</button>
             </td>
         </tr>
         }

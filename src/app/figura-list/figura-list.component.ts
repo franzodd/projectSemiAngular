@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Figura } from './figura';
+import { FiguraCardService } from '../figura-card.service';
 
 @Component({
-  selector: 'app-beer-list',
-  templateUrl: './beer-list.component.html',
-  styleUrl: './beer-list.component.scss'
+  selector: 'app-figura-list',
+  templateUrl: './figura-list.component.html',
+  styleUrl: './figura-list.component.scss'
 })
-export class BeerListComponent {
+export class FiguraListComponent {
 
   figuras: Figura[] = [{
     "nombre": "2B",
@@ -28,11 +29,17 @@ export class BeerListComponent {
   }
   ]
 
-  constructor() {
-
-  }
+  constructor(private carrito: FiguraCardService) { }
 
   ngOnInit(): void {
+  }
+  agregarFiguraAlCarrito(figura: Figura) {
+    this.carrito.agregarCarro(figura);
+    figura.stock -= figura.cantidadPedido;
+    figura.cantidadPedido = 0;
+  }
+  maxReached(m: string) {
+    alert(m);
   }
 
 }
