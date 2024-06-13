@@ -6,4 +6,5 @@ export interface Figura {
     img: string;
     promo: boolean;
     cantidadPedido: number;
+
 }

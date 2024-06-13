@@ -9,6 +9,7 @@ import { FigurasAbautComponent } from './figuras-abaut/figuras-abaut.component';
 import { ProyectoFigurasFigurasComponent } from './proyecto-figuras-figuras/proyecto-figuras-figuras.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

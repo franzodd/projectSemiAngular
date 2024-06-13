@@ -10,7 +10,7 @@
             <td>Compra</td>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
         @for (figura of figuras; track figura.nombre) {
         <tr>
             <td>{{figura.nombre}}</td>
@@ -25,41 +25,20 @@
             @if (figura.stock > 0) {
             <td>{{figura.stock}}</td>
             <td>
-                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock"
+                    (maxReached)="maxReached($event)"></app-input-integer>
             </td>
             }
             @else {
             <td>No hay stock</td>
             }
             <td>
-            <button class="btn btn-dark" (click)="agregarFiguraAlCarrito(figura)">Agregar al carrito</button>
+                @if (figura.cantidadPedido > 0) {
+                <button class="btn btn-dark" (click)="agregarFiguraAlCarrito(figura)">Agregar</button>
+                }
+
             </td>
         </tr>
         }
-        <tr>
-            <td>Baki</td>
-            <td>15cm</td>
-            <td>$18000</td>
-            <td></td>
-            <td>2</td>
-            <td>
-                <div class="divCant">
-                    <button>-</button>
-                    <button class="btn">0</button><button>+</button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>Coraline</td>
-            <td>20cm</td>
-            <td>$28000</td>
-            <td></td>
-            <td>4</td>
-            <td>
-                <div class="divCant"><button>-</button>
-                    <button class="btn">0</button><button>+</button>
-                </div>
-            </td>
-        </tr>
     </tbody>
 </table>

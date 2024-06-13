@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FiguraCardService } from './figura-card.service';
+import { StockServiceService } from './figura-stock.service';
 
-describe('FiguraCardService', () => {
-  let service: FiguraCardService;
+describe('StockServiceService', () => {
+  let service: StockServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FiguraCardService);
+    service = TestBed.inject(StockServiceService);
   });
 
   it('should be created', () => {
