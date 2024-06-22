@@ -4,11 +4,11 @@ import { FiguraCardService } from '../Services/figura-card.service';
 import { FiguraDataService } from '../Services/figura-data.service';
 
 @Component({
-  selector: 'app-figura-list',
-  templateUrl: './figura-list.component.html',
-  styleUrl: './figura-list.component.scss'
+  selector: 'app-figura-catalogo',
+  templateUrl: './figura-catalogo.component.html',
+  styleUrl: './figura-catalogo.component.scss'
 })
-export class FiguraListComponent {
+export class FiguraCatalogoComponent {
    figuras: Figura[] = [];
   
   constructor(
@@ -16,10 +16,8 @@ export class FiguraListComponent {
     private figuraDataService: FiguraDataService
   ) { }
 
-
-
   ngOnInit(): void {
-    this.figuraDataService.getAll().subscribe(figuras => this.figuras = figuras);
+    this.figuraDataService.getAllFigCatalogo().subscribe(figuras => this.figuras = figuras);
   }
 
   agregarFiguraAlCarrito(figura: Figura) {

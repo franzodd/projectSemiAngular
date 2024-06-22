@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 95%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.service {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.service img {
+    max-width: 200px;
+    margin-right: 20px;
+    border: 1px;
+    border-radius: 5%;
+}

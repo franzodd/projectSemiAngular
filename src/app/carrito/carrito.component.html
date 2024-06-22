@@ -1,36 +1,38 @@
-<h3 class="col-4">Carrito de compras ({{cantCompras}})</h3>
-@if (cantCompras > 0) {
-<table class="table">
-    <thead>
-        <tr>
-            <td>Figura</td>
-            <td>Tamanio</td>
-            <td>Precio</td>
-            <td>Imagen</td>
-            <td>Cantidad</td>
-        </tr>
-    </thead>
-    <tbody>
-        @for (figura of listaCompras$|async; track figura.nombre) {
-        <tr>
-            <td>{{figura.nombre}}</td>
-            <td>{{figura.tamanio}}cm</td>
-            @if (figura.promo) {
-            <td class="btn btn-success">{{figura.precio | currency}}</td>
+<section class="container">
+    <h3 class="col-4">Carrito ({{cantCompras}})</h3>
+    @if (cantCompras > 0) {
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Figura</td>
+                <td>Tamanio</td>
+                <td>Precio</td>
+                <td>Imagen</td>
+                <td>Cantidad</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (figura of listaCompras$|async; track figura.nombre) {
+            <tr>
+                <td>{{figura.nombre}}</td>
+                <td>{{figura.tamanio}}cm</td>
+                @if (figura.promo) {
+                <td class="btn btn-success">{{figura.precio | currency}}</td>
+                }
+                @else {
+                <td class="btn btn-danger">{{figura.precio | currency}}</td>
+                }
+                <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
+                <td>{{figura.cantidadPedido}}</td>
+                <td><button class="btn btn-danger" (click)="borrarFiguraDelCarro(figura)">Borrar</button></td>
+            </tr>
             }
-            @else {
-            <td class="btn btn-danger">{{figura.precio | currency}}</td>
-            }
-            <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
-            <td>{{figura.cantidadPedido}}</td>
-            <td><button class="btn btn-danger" (click)="borrarFiguraDelCarro(figura)">Borrar</button></td>
-        </tr>
-        }
-    </tbody>
-</table>
-}
-@if (cantCompras > 0) {
-<div class="containsBtn">
-    <button class="btn btn-primary">Finalizar compra</button>
-</div>
-}
+        </tbody>
+    </table>
+    }
+    @if (cantCompras > 0) {
+    <div class="containsBtnCompra">
+        <button class="btn btn-primary">Finalizar compra</button>
+    </div>
+    }
+</section>

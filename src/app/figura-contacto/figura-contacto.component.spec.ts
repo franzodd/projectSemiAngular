@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FigurasAbautComponent } from './figuras-abaut.component';
+import { FiguraContactoComponent } from './figura-contacto.component';
 
-describe('FigurasAbautComponent', () => {
-  let component: FigurasAbautComponent;
-  let fixture: ComponentFixture<FigurasAbautComponent>;
+describe('FiguraContactoComponent', () => {
+  let component: FiguraContactoComponent;
+  let fixture: ComponentFixture<FiguraContactoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FigurasAbautComponent]
+      declarations: [FiguraContactoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FigurasAbautComponent);
+    fixture = TestBed.createComponent(FiguraContactoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

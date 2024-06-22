@@ -1,5 +1,5 @@
 import { Component,EventEmitter,Input, OnInit, Output, output } from '@angular/core';
-import { Figura } from '../figura-list/figura';
+import { Figura } from '../figura-catalogo/figura';
 
 @Component({
   selector: 'app-input-integer',

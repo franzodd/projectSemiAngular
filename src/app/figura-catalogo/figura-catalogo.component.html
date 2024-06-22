@@ -42,3 +42,15 @@
         }
     </tbody>
 </table>
+
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @for (figura of figuras; track figura.nombre) {
+        <div class="carousel-item active">
+            <img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre">
+        </div>
+        }
+    </div>
+</div>

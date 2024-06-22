@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FiguraCardService } from '../Services/figura-card.service';
-import { Figura } from '../figura-list/figura';
+import { Figura } from '../figura-catalogo/figura';
 import { Observable } from 'rxjs';
-import { FiguraListComponent } from '../figura-list/figura-list.component';
+import { FiguraCatalogoComponent } from '../figura-catalogo/figura-catalogo.component';
 import { FiguraDataService } from '../Services/figura-data.service';
 
 @Component({
@@ -24,12 +24,13 @@ export class CarritoComponent {
     this.listaCompras$ = carrito.listaCarrito.asObservable();
   }
 
+
   ngOnInit(): void {
   }
 
   borrarFiguraDelCarro(figura: Figura) {
     this.carrito.sacarCarro(figura);
-    this.figuraDataService.setStock(figura, figura.cantidadPedido);
+   // this.figuraDataService.setStock(figura, figura.cantidadPedido);
     figura.cantidadPedido = 0;
   }
 }

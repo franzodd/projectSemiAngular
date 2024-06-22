@@ -1,24 +1,26 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <nav class="navbar-nav ">
-        <a class="nav-link" aria-current="page" [routerLink]="['/']">Home</a>
-        <a class="nav-link" [routerLink]="['/abaut']">Figuras destacadas</a>
-        <a class="nav-link" [routerLink]="['/abaut']">Contacto</a>
-      </nav>
+<div class="contBody">
+  <div class="contNav">
+    <a class="nav-link" aria-current="page" [routerLink]="['/']"><img class="logo" src="assets/img/logotipo/logo3.jpg"
+        alt="logo"></a>
+    <nav class="nav">
+      <a class="nav-link" aria-current="page" [routerLink]="['/']">Home</a>
+      <a class="nav-link" aria-current="page" [routerLink]="['/compras']">Compras</a>
+      <a class="nav-link" aria-current="page" [routerLink]="['/abaut']">Figuras destacadas</a>
+      <a class="nav-link" aria-current="page" [routerLink]="['/contacto']">Contacto</a>
+    </nav>
+    <div class="contUser">
+      <p class="userName">Francisco Lopez</p>
+      <img class="logoUser" src="assets/img/iconos/user.jpg" alt="UserIcon">
+      <img class="logoCarrito" id="btncarrito" src="assets/img/iconos/carrito.png" alt="CarritoIcon">
+      <p class="userName">({{cantCarrito}})</p>
     </div>
+    <app-carrito id="appCarrito" class="desaparecer"></app-carrito>
   </div>
-</nav>
-<div>
-
+  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <h5>{{title}} 2024</h5>
+  </footer>
 </div>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
-<footer>
-  <h5>{{title}} 2024</h5>
-</footer>

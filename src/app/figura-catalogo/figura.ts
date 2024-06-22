@@ -1,4 +1,5 @@
 export interface Figura {
+    id: number;
     nombre: string;
     tamanio: number;
     precio: number;
@@ -6,5 +7,4 @@ export interface Figura {
     img: string;
     promo: boolean;
     cantidadPedido: number;
-
 }

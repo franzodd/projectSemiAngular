@@ -1,0 +1,31 @@
+<section class="container">
+    <ul>
+        @for (figura of figuras; track figura.nombre) {
+        <li class="contLi">
+            @if (figura.id % 2 == 0) {
+            <img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre">
+            }
+            <div class="contCaracteristicas">
+                <h4>Caracteristicas</h4>
+                <ul>
+                    <li>Tamaño:{{figura.tamanio}}cm</li>
+                    @if (figura.promo) {
+                    <li class="btn btn-success espacioDelante">{{figura.precio | currency}}</li>
+                    }
+                    @else {
+                    <li class="btn btn-danger btnEliminarNegar">{{figura.precio | currency}}</li>
+                    }
+                    <li>Materiales: {{figura.materiales}}</li>
+                    <li>{{figura.nombre}}: {{figura.descripcion}}</li>
+                </ul>
+                <div class="containsBtn">
+                    <button class="btn btn-primary">Agregar a carrito</button>
+                </div>
+            </div>
+            @if (figura.id % 2 == 1) {
+            <img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre">>
+            }
+        </li>
+        }
+    </ul>
+</section>
