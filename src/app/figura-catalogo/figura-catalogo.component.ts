@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Figura } from './figura';
-import { FiguraCardService } from '../Services/figura-card.service';
 import { FiguraDataService } from '../Services/figura-data.service';
 
 @Component({
@@ -9,23 +8,35 @@ import { FiguraDataService } from '../Services/figura-data.service';
   styleUrl: './figura-catalogo.component.scss'
 })
 export class FiguraCatalogoComponent {
-   figuras: Figura[] = [];
+  figuras: Figura[] = [];
   
   constructor(
-    private carrito: FiguraCardService,
     private figuraDataService: FiguraDataService
   ) { }
-
+  @Input()
+  figuraForm: Figura; 
+  @Output()
+  figuraFormChange: EventEmitter<Figura> = new EventEmitter<Figura>();
+  
   ngOnInit(): void {
     this.figuraDataService.getAllFigCatalogo().subscribe(figuras => this.figuras = figuras);
   }
-
-  agregarFiguraAlCarrito(figura: Figura) {
-    this.carrito.agregarCarro(figura);
-    figura.stock -= figura.cantidadPedido;
-    figura.cantidadPedido = 0;
-  }
-  maxReached(m: string) {
-    alert(m);
+  agregarAlForm(figura: Figura) {
+    let auxFigura:Figura =  {
+      "id": 1,
+      "nombre": "",
+      "tamanio": 0,
+      "precio": 0,
+      "img": "",
+      "pintado": false,
+      "promo": false,
+    };
+    auxFigura.nombre = figura.nombre;
+    auxFigura.tamanio = figura.tamanio;
+    auxFigura.precio = figura.precio;
+    auxFigura.img = figura.img;
+    auxFigura.pintado = figura.pintado;
+    auxFigura.promo = figura.promo;
+    this.figuraFormChange.emit(auxFigura);
   }
 }

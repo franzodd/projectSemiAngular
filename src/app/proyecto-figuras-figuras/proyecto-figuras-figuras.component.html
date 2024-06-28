@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col-6">
-      <app-figura-catalogo></app-figura-catalogo>
-    </div>
+  <div class="container">
+    <app-figura-catalogo [(figuraForm)]="figuraForm"></app-figura-catalogo>
+    <app-figura-form-pedido [figura]="figuraForm"></app-figura-form-pedido>
   </div>
+</div>

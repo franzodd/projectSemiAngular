@@ -11,13 +11,8 @@ export class FiguraCardService {
   private _listaCarrito: Figura[] = [];
   listaCarrito: BehaviorSubject<Figura[]> = new BehaviorSubject(this._listaCarrito);
   agregarCarro(figura: Figura) {
-    let item = this._listaCarrito.find((v1) => v1.nombre == figura.nombre);
-    if (!item) {
-      this._listaCarrito.push({ ...figura });
-    }
-    else {
-      item.cantidadPedido += figura.cantidadPedido;
-    }
+    this._listaCarrito.push({ ...figura });
+
     console.log(this._listaCarrito.length);
     this.listaCarrito.next(this._listaCarrito); // equivalente al evento emitt
   }

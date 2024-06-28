@@ -1,6 +1,11 @@
+.container{
+    background-color: white;
+
+}
 .img{
     max-width: 75px;
     max-height: 75px;
+    border-radius: 5px;
 }
 .divCant{
     display: flex;

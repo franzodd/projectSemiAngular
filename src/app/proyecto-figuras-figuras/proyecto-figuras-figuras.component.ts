@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Figura } from '../figura-catalogo/figura';
 
 @Component({
   selector: 'app-proyecto-figuras-figuras',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ProyectoFigurasFigurasComponent {
 
+  constructor() { }
+  figuraForm: Figura;
+  ngOnInit(): void {
+  }
 }

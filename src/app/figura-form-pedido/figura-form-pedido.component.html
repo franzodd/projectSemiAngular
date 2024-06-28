@@ -1,0 +1,84 @@
+@if (figura.nombre != " ") {
+<section class="container">
+    <form action="">
+        <div class="containFrom">
+            <div>
+                <img class="img" [src]="figura.img" [alt]="figura.nombre">
+            </div>
+            <div class="containsInpunt">
+                <h3>{{figura.nombre}}</h3>
+                <div>
+                    <label for="">Tamaño</label>
+                    @if (figura.tamanio == 15) {
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('chico')"
+                            value="chico" checked />
+                        <label for="huey">15cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('mediano')"
+                            value="mediano" />
+                        <label for="dewey">20cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('grande')"
+                            value="grande" />
+                        <label for="louie">25cm</label>
+                    </div>
+                    }
+                    @else if (figura.tamanio == 20) {
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('chico')"
+                            value="chico" />
+                        <label for="huey">15cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('mediano')"
+                            value="mediano" checked />
+                        <label for="dewey">20cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('grande')"
+                            value="grande" />
+                        <label for="louie">25cm</label>
+                    </div>
+                    }
+                    @else if (figura.tamanio == 25) {
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('chico')"
+                            value="chico" />
+                        <label for="huey">15cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('mediano')"
+                            value="mediano" />
+                        <label for="dewey">20cm</label>
+                    </div>
+                    <div>
+                        <input class="inputTamanio" type="radio" name="tamanio" (click)="modificarPrecio('grande')"
+                            value="grande" checked />
+                        <label for="louie">25cm</label>
+                    </div>
+                    }
+                    <div>
+                        <label for="">Pintado</label>
+                        <input type="checkbox" id="inputColor" name="color" (click)="modificarPrecioPintado()">
+                    </div>
+                    <div>
+                        @if(figura.promo){
+                        <p class="btn btn-success" id="precioTotal">{{figura.precio *0.9| currency}}</p>
+                        }
+                        @else{
+                            <p class="btn btn-warning" id="precioTotal">{{figura.precio | currency}}</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-primary mb-2" type="submit" value="Agregar al carrito"
+                (click)="agregarFiguraAlCarrito(figura)">
+        </div>
+    </form>
+</section>
+}

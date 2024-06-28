@@ -10,16 +10,16 @@
                 <ul>
                     <li>Tamaño:{{figura.tamanio}}cm</li>
                     @if (figura.promo) {
-                    <li class="btn btn-success espacioDelante">{{figura.precio | currency}}</li>
+                    <li class="btn btn-success">{{figura.precio * 0.9 | currency}}</li>
                     }
                     @else {
-                    <li class="btn btn-danger btnEliminarNegar">{{figura.precio | currency}}</li>
+                    <li class="btn btn-warning">{{figura.precio | currency}}</li>
                     }
                     <li>Materiales: {{figura.materiales}}</li>
                     <li>{{figura.nombre}}: {{figura.descripcion}}</li>
                 </ul>
                 <div class="containsBtn">
-                    <button class="btn btn-primary">Agregar a carrito</button>
+                    <button class="btn btn-primary" (click)="agregarFiguraAlCarrito(figura)">Agregar a carrito</button>
                 </div>
             </div>
             @if (figura.id % 2 == 1) {

@@ -3,8 +3,7 @@ export interface Figura {
     nombre: string;
     tamanio: number;
     precio: number;
-    stock: number;
     img: string;
+    pintado: boolean;
     promo: boolean;
-    cantidadPedido: number;
 }

@@ -23,14 +23,10 @@ export class CarritoComponent {
     carrito.listaCarrito.subscribe((observable) => this.cantCompras = observable.length);
     this.listaCompras$ = carrito.listaCarrito.asObservable();
   }
-
-
   ngOnInit(): void {
   }
 
   borrarFiguraDelCarro(figura: Figura) {
     this.carrito.sacarCarro(figura);
-   // this.figuraDataService.setStock(figura, figura.cantidadPedido);
-    figura.cantidadPedido = 0;
   }
 }

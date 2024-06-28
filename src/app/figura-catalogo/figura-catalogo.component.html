@@ -1,56 +1,32 @@
-<h1>Lista de figuras</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <td>Figura</td>
-            <td>Tamanio</td>
-            <td>Precio</td>
-            <td>Imagen</td>
-            <td>Stock</td>
-            <td>Compra</td>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-        @for (figura of figuras; track figura.nombre) {
-        <tr>
-            <td>{{figura.nombre}}</td>
-            <td>{{figura.tamanio}}cm</td>
-            @if (figura.promo) {
-            <td class="btn btn-success espacioDelante">{{figura.precio | currency}}</td>
-            }
-            @else {
-            <td class="btn btn-danger btnEliminarNegar">{{figura.precio | currency}}</td>
-            }
-            <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
-            @if (figura.stock > 0) {
-            <td>{{figura.stock}}</td>
-            <td>
-                <app-input-integer [(cantidadPedido)]="figura.cantidadPedido" [max]="figura.stock"
-                    (maxReached)="maxReached($event)"></app-input-integer>
-            </td>
-            }
-            @else {
-            <td>No hay stock</td>
-            }
-            <td>
-                @if (figura.cantidadPedido > 0) {
-                <button class="btn btn-dark" (click)="agregarFiguraAlCarrito(figura)">Agregar</button>
+<section class="container">
+    <h1>Lista de figuras</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Figura</td>
+                <td>Tamaño</td>
+                <td>Precio</td>
+                <td>Imagen</td>
+                <td>Compra</td>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @for (figura of figuras; track figura.nombre) {
+            <tr>
+                <td>{{figura.nombre}}</td>
+                <td>{{figura.tamanio}}cm</td>
+                @if (figura.promo) {
+                <td class="btn btn-success espacioDelante">{{figura.precio *0.9| currency}}</td>
                 }
-
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-
-
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        @for (figura of figuras; track figura.nombre) {
-        <div class="carousel-item active">
-            <img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre">
-        </div>
-        }
-    </div>
-</div>
+                @else {
+                <td class="btn btn-outline-warning btnEliminarNegar">{{figura.precio | currency}}</td>
+                }
+                <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
+                <td>
+                    <button class="btn btn-dark" (click)="agregarAlForm(figura)">Elegir</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>

@@ -21,7 +21,6 @@ export class FigurasDestacadasComponent {
   }
   agregarFiguraAlCarrito(figura: Figura) {
     this.carrito.agregarCarro(figura);
-    figura.stock -= figura.cantidadPedido;
-    figura.cantidadPedido = 0;
   }
+  
 }

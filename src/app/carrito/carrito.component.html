@@ -5,10 +5,11 @@
         <thead>
             <tr>
                 <td>Figura</td>
-                <td>Tamanio</td>
+                <td>Tamaño</td>
                 <td>Precio</td>
                 <td>Imagen</td>
-                <td>Cantidad</td>
+                <td>Pintado</td>
+                <td>Quitar</td>
             </tr>
         </thead>
         <tbody>
@@ -17,13 +18,18 @@
                 <td>{{figura.nombre}}</td>
                 <td>{{figura.tamanio}}cm</td>
                 @if (figura.promo) {
-                <td class="btn btn-success">{{figura.precio | currency}}</td>
+                <td class="btn btn-success">{{figura.precio * 0.9 | currency}}</td>
                 }
                 @else {
-                <td class="btn btn-danger">{{figura.precio | currency}}</td>
+                <td class="btn btn-warning">{{figura.precio | currency}}</td>
                 }
                 <td><img class="img img-thubnail" [src]="figura.img" [alt]="figura.nombre"></td>
-                <td>{{figura.cantidadPedido}}</td>
+                @if (figura.pintado) {
+                <td>Si</td>
+                }
+                @else {
+                    <td>No</td>
+                }
                 <td><button class="btn btn-danger" (click)="borrarFiguraDelCarro(figura)">Borrar</button></td>
             </tr>
             }

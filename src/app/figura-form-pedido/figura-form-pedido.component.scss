@@ -1,0 +1,33 @@
+.container{
+    background-color: #ffffff;
+    width: 95%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+.img{
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.containsInpunt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 200px;
+    align-items: center;
+}
+.containsInpunt input{
+    margin: 10px;
+}
+.containFrom{
+    display: flex;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
